@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Turnos con Nayla</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="contenedor">
+    <h1>📅 Reservá tu turno con Nayla</h1>
+    <p class="descripcion">¿Querés un turno que *capaz* se respete? Estás en el lugar más incierto posible </p>
+
+    <form method="post">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="date" name="fecha" required>
+
+      <p><strong>Elegí una franja horaria:</strong></p>
+      <label>
+        <input type="radio" name="hora" value="12:00-13:30" required>
+        Mediodía (12:00 - 13:30) 🥗 *Única posibilidad de contacto real*
+      </label><br>
+
+      <label>
+        <input type="radio" name="hora" value="22:00-00:00">
+        Noche (22:00 - 00:00) 🌙 *Probablemente esté en instagram*
+      </label><br>
+
+      <label>
+        <input type="radio" name="hora" value="01:00-02:00">
+        Madrugada (01:00 - 02:00) 🦉 *Solo si Nayla reencarnó en búho*
+      </label><br><br>
+
+      <button type="submit">Reservar turno</button>
+    </form>
+
+    {% if mensaje %}
+      <div id="mensaje">
+        <p style="margin-top:20px; font-weight:bold;">{{ mensaje }}</p>
+      </div>
+    {% endif %}
+
+    <footer>
+      <p>* La asistencia al turno no está asegurada.<br>
+      Nayla podría estar trabajando, durmiendo o viendo memes.</p>
+    </footer>
+  </div>
+</body>
+</html>
